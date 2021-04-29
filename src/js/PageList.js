@@ -100,17 +100,16 @@ const PageList = (argument = "") => {
                   <img class="card-img-top" src="${
                     article.background_image
                   }" alt="game-picture">
-                  <div class="show-game-infos">
-                    <p>Date de sortie : ${article.released} </p>
-                    <p>Éditeur : </p>
-                    <p>Genre : ${article.genres.map((genre) => genre.slug)} </p>
-                    <p>Note : ${article.rating} </p>
-                    <p>Nombre de votes : ${article.ratings_count} </p>
+                  <div class="show-game-infos d-flex justify-content-center">
+                    <p><strong>Date de sortie :</strong> ${article.released} </p>
+                    <p><strong>Genre :</strong> <small>${article.genres.map((genre) => genre.slug.toUpperCase()).join(" - ")}</small> </p>
+                    <p><strong>Note :</strong> ${article.rating} </p>
+                    <p><strong>Nombre de votes :</strong> ${article.ratings_count} </p>
                   </div>
                   <div class="card-body mx-0 px-0">
                     <h5 class="card-title">${article.name}</h5>
-                    <a href="#pagedetail/${
-                      article.id
+                    <a href="#game/${
+                      article.slug
                     }" class="stretched-link"></a>
                     <div class="text-muted d-flex justify-content-start">${aryPlatforms
                       .map((slug) => mapPlatformImg(slug))

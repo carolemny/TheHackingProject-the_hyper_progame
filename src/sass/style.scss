@@ -1,6 +1,21 @@
 @import "my_variables";
 @import "~bootstrap/scss/bootstrap";
 
+// ************************************************************ mixins ************************************************************
+
+@mixin my-hover-effect {
+  background-color: $my-background-red;
+  border-color: $my-border-red;
+}
+
+@mixin my-custom-btn {
+  color: $my-light;
+  background-color: $my-red;
+  border-color: $my-red;
+}
+
+// ************************************************************ general ************************************************************
+
 body {
   background-color: $my-dark;
   color: $my-light;
@@ -28,14 +43,14 @@ header {
   }
 }
 
+// ************************************************************ page list ************************************************************
+
 .custom-select {
-  color: $my-light;
-  background-color: $my-red;
-  border-color: $my-red;
+  @include my-custom-btn;
+
   border-radius: 0;
   &:hover {
-    background-color: rgba(255, 0, 0, 0.5);
-    border-color: rgba(255, 0, 0, 0.5);
+    @include my-hover-effect;
   }
   &:focus {
     outline: 0;
@@ -75,7 +90,7 @@ option {
   }
   .show-game-infos {
     position: absolute;
-    padding: 2%;
+    padding-left: 5%;
     top: 0;
     left: 0;
     right: 0;
@@ -83,6 +98,10 @@ option {
     background-color: rgba(0, 0, 0, 0.8);
     opacity: 0;
     transition: opacity ease 0.5s;
+    flex-flow: column;
+    p {
+      font-size: 0.8em;
+    }
   }
   &:hover {
     .show-game-infos {
@@ -98,16 +117,14 @@ option {
 }
 
 .btn-more {
-  color: $my-light;
-  background-color: $my-red;
-  border-color: $my-red;
+  @include my-custom-btn;
+
   border-radius: 0;
 }
 
 .btn:hover {
   color: $my-light;
-  background-color: rgba(255, 0, 0, 0.5);
-  border-color: rgba(255, 0, 0, 0.5);
+  @include my-hover-effect;
 }
 
 .btn:focus {
@@ -122,7 +139,7 @@ footer {
   }
 }
 
-// page detail
+// ************************************************************ page detail ************************************************************
 
 .jumbotron {
   height: 400px;
@@ -149,13 +166,38 @@ footer {
   right: 30px;
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
 }
 
-.col{
-  img{
+.col {
+  img {
     width: 100%;
     padding: 2%;
+  }
+}
+
+.my-a,
+.my-a:visited {
+  text-decoration: none;
+  position: relative;
+  color: $my-light;
+
+  &:after {
+    content: "";
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    background: $my-red;
+    transition: 0.2s;
+  }
+  &:hover {
+    color: $my-light;
+    text-decoration: none;
+  }
+  &:hover:after {
+    width: 100%;
   }
 }

@@ -3,7 +3,7 @@
 const routes = {
   "": PageList,
   pagelist: PageList,
-  pagedetail: PageDetail,
+  game: PageDetail,
 };
 
 export { routes };

@@ -105,7 +105,7 @@ const PageDetail = (argument = "") => {
           console.log(response);
           articleStores += `
             ${response.results
-              .map((result) => `<a href="${result.url}">${result.url}</a>`)
+              .map((result) => `<a href="${result.url}" class="my-a" target="_blank">${result.url}</a>`)
               .join("")}
           `;
 
@@ -147,15 +147,15 @@ const PageDetail = (argument = "") => {
       <section class="page-detail">
         <div class="article"></div>
         <div class="col px-4 my-1">
-          <div class="row"><h1>BUY</h1></div>
+          <div class="row my-4"><h1>BUY</h1></div>
           <div id="article-stores" class="row"></div>
         </div>
         <div id="trailer-container" class="col px-4 my-1 hidden">
-          <div class="row"><h1>TRAILER</h1></div>
+          <div class="row my-4"><h1>TRAILER</h1></div>
           <div id="trailer" class="row"></div>
         </div>
         <div class="col px-4 my-1">
-          <div class="row"><h1>SCREENSHOTS</h1></div>
+          <div class="row my-4"><h1>SCREENSHOTS</h1></div>
           <div id="article-screens" class="row"></div>
         </div>
       </section>
